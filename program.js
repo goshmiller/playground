@@ -1,8 +1,9 @@
 document.writeln('Hello, world!');
 
+/** 
 //This is an Immediately Invoked Function (IIFy)
 (function () {
-console.log('Executed!');
+//console.log('Executed!');
 })();
 
 
@@ -13,7 +14,7 @@ var app = {};
 (function (ns) {
     ns.name = 'Josh';
 })(app);
-console.log(app.name);
+//console.log(app.name);
 
 
 //Trying more
@@ -25,4 +26,10 @@ var jQuery = {};
     console.log($ === jQuery);
     console.log(jQuery);
 })(app2, jQuery);
+*/
+
+console.log("screenLeft:"+window.screenLeft + ", screenTop:" + window.screenTop);
+console.log("innerWidth:"+window.innerWidth + ", outerWidth:" + window.outerWidth);
+
+
 
