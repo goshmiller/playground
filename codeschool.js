@@ -31,21 +31,56 @@
  dontPanic(lighthouseRock);
  */
 
-var rockSpearguns = {
-    Sharpshooter: {barbs: 2, weight: 10, heft: "overhand"},
-    Pokepistol: {barbs: 4, weight: 8, heft: "shoulder"},
-    Javelinjet: {barbs: 4, weight: 12, heft: "waist"},
-    Firefork: {barbs: 6, weight: 8, heft: "overhand"},
-    "The Impaler": {barbs: 1, weight: 30, heft: "chest"}
+/*
+ -------------------------------------------------------------------------------------------
+ var rockSpearguns = {
+ Sharpshooter: {barbs: 2, weight: 10, heft: "overhand"},
+ Pokepistol: {barbs: 4, weight: 8, heft: "shoulder"},
+ Javelinjet: {barbs: 4, weight: 12, heft: "waist"},
+ Firefork: {barbs: 6, weight: 8, heft: "overhand"},
+ "The Impaler": {barbs: 1, weight: 30, heft: "chest"}
+ };
+
+ function listGuns(guns) {
+ //console.log(guns);
+ for (var speargun in guns) {
+ // modify the log message here
+ console.log("Behold! " + speargun + ", with " + guns[speargun]["heft"] + " heft!");
+ }
+
+ }
+
+ listGuns(rockSpearguns);
+ */
+
+var forestCows = [
+    {name: "Legolas", type: "calf", hadCalf: null},
+    {name: "Gimli", type: "bull", hadCalf: null},
+    {name: "Arwen", type: "cow", hadCalf: null},
+    {name: "Galadriel", type: "cow", hadCalf: null},
+    {name: "Eowyn", type: "cow", hadCalf: "Legolas"}
+];
+
+
+Object.prototype.noCalvesYet = function () {
+    if (this.type === "cow" && this.hadCalf === null) {
+        return true;
+    }
+    return false;
 };
 
-function listGuns(guns) {
-    //console.log(guns);
-    for (var speargun in guns) {
-        // modify the log message here
-        console.log("Behold! " + speargun + ", with " + guns[speargun]["heft"] + " heft!");
+
+Array.prototype.countForBreeding = function () {
+    var numToBreed = 0;
+    var i;
+
+    for (i = 0; i < this.length; i += 1) {
+        if ( this[i].noCalvesYet() ) {
+            numToBreed += 1;
+        }
     }
+    return numToBreed;
+};
 
-}
 
-listGuns(rockSpearguns);
+console.log(forestCows.countForBreeding());
